@@ -5,6 +5,10 @@ module.exports = function(el) {
 
   var candidates = el.querySelectorAll('input, select, a[href], textarea, button, [tabindex]');
 
+  // include container in list of candidates
+  candidates = Array.prototype.slice.call(candidates)
+  candidates.unshift(el)
+
   var candidate, candidateIndex;
   for (var i = 0, l = candidates.length; i < l; i++) {
     candidate = candidates[i];
